@@ -10,4 +10,16 @@ export class Producto {
         this.precio = precio;
         this.imagen = imagen;
     }
+    getNombre() {
+        return this.nombre
+    }
+    getDescripcion() {
+        return this.descripcion
+    }
+    getPrecio(){
+        return this.precio
+    }
+    getImagen(){
+        return this.imagen
+    }
 }

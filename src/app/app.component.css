@@ -1,16 +1,16 @@
-.btn{
+.btn {
     border-radius: 8px;
 }
 
-.btnSucess{
+.btnSucess {
     background-color: #4CAF50;
 }
 
-.btnCancel{
+.btnCancel {
     background-color: #E57373;
     transition: .5s;
 }
 
-.btnCancel:hover{
+.btnCancel:hover {
     background-color: #f44336;
 }
