@@ -1,8 +1,28 @@
-<form>
-    <input class="inputForm" placeholder="Documento" />
-    <input class="inputForm" placeholder="Nombre" />
-    <input class="inputForm" placeholder="Apellido" />
-    <input class="inputForm" placeholder="Fecha de nacimiento" />
-    <input class="inputForm" placeholder="Direccion" />
-    <input class="inputForm" placeholder="Telefono" />
-</form>
+<div class="body">
+
+    <div>
+
+        <form action="" (submit)="send()" [formGroup]="registerForm">
+            <p class="p">Documento:</p>
+            <input class="input" type="text" name="documento" placeholder="CI" formControlName="documento">
+            <p class="p">Nombre:</p>
+            <input class="input" type="text" name="nombre" placeholder="Nombre Cliente" formControlName="nombre">
+            <p class="p">Apellido:</p>
+            <input class="input" type="text" name="apellido" placeholder="Apellido Cliente" formControlName="apellido">
+            <p class="p">Fecha de Nacimiendo:</p>
+            <input class="input" type="date" name="fechaNacimiento" formControlName="fechaNacimiento">
+            <p class="p">Dirección:</p>
+            <input class="input" type="text" name="direccion" formControlName="direccion">
+            <p class="p">Telefono:</p>
+            <input class="input" type="text" name="telefono" formControlName="telefono">
+            <div style="margin-top: 10px;">
+                <button class="btn btnCancel">Cancelar</button>
+                <button class="btn btnSucess" [disabled]="registerForm.invalid" type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center; padding-bottom: 5px; padding-top: 5px; border: 2px solid seagreen;">
+    Se creo el cliente correctamente
+</div>

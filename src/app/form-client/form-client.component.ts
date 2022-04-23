@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from '../class/cliente';
 import { Producto } from '../class/producto';
 import { Venta } from '../class/venta';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-form-client',
@@ -9,25 +11,36 @@ import { Venta } from '../class/venta';
     styleUrls: ['./form-client.component.css']
 })
 
+
 export class FormClientComponent implements OnInit {
+    public cantCliente: number;
+    constructor(private formBuilder: FormBuilder, private router: Router) {
+        this.cantCliente = 0
+    }
+
+    registerForm = this.formBuilder.group({
+        documento: ["", [Validators.required]],
+        nombre: ["", [Validators.required]],
+        apellido: ["", [Validators.required]],
+        fechaNacimiento: ["", [Validators.required]],
+        direccion: ["", [Validators.required]],
+        telefono: ["", [Validators.required]]
+    })
 
     ngOnInit(): void {
-
+        localStorage.clear()
     }
 
     getClients() {
-        let storage = window.localStorage.getItem("arrClients")
-        if (storage) {
-            let arrStorage = storage.split(',')
-            let arrClient = []; //Es lo que tengo que devolver. DEVUELVE (Cliente[])
-            for (let i in arrStorage) {
-                let client = JSON.parse(arrStorage[i])
-                arrClient.push(new Cliente(client.documento, client.nombre, client.apellido, client.fechaNacimiento, client.direccion, client.telefono))
+        let arr = []
+        for (let i = 0; i <= this.cantCliente; i++) {
+            let aux = window.localStorage.getItem(`client ${i}`)
+            if (typeof aux === "string") {
+                let client = JSON.parse(aux)
+                arr.push(new Cliente(client.documento, client.nombre, client.apellido, client.fechaNacimiento, client.direccion, client.telefono))
             }
-            return arrClient
         }
-        return []
-
+        return arr
     }
 
     getVentas() {
@@ -35,10 +48,10 @@ export class FormClientComponent implements OnInit {
 
     getProductos() {
         let storage = window.localStorage.getItem("arrProductos")
-        if(storage){
+        if (storage) {
             let arrStorage = storage.split(',')
             let arrProducts = [];
-            for(let i in arrStorage){
+            for (let i in arrStorage) {
                 let produc = JSON.parse(arrStorage[i])
                 arrProducts.push(new Producto(produc.nombre, produc.descripcion, produc.precio, produc.imagen))
             }
@@ -49,8 +62,6 @@ export class FormClientComponent implements OnInit {
     }
 
     setClients(cliente: Cliente) {
-        let storage = window.localStorage.getItem("arrClients")
-
         let objClient = {
             documento: cliente.getDocumento(),
             nombre: cliente.getNombre(),
@@ -59,13 +70,8 @@ export class FormClientComponent implements OnInit {
             direccion: cliente.getDireccion(),
             telefono: cliente.getTelefono()
         }
-
-        if (storage) {
-            storage += "," + JSON.stringify(objClient)
-            window.localStorage.setItem("arrClients", storage)
-        }
-        else
-            window.localStorage.setItem("arrClients", JSON.stringify(objClient))
+        window.localStorage.setItem(`client ${this.cantCliente}`, JSON.stringify(objClient))
+        this.cantCliente += 1
     }
 
     setVentas(venta: Venta) {
@@ -82,12 +88,18 @@ export class FormClientComponent implements OnInit {
             imagen: producto.getImagen()
         }
 
-        if(storage){
-            storage += "," +JSON.stringify(objProducts)
+        if (storage) {
+            storage += "," + JSON.stringify(objProducts)
             window.localStorage.setItem("arrProductos", storage)
 
         }
         else
             window.localStorage.setItem("arrProductos", JSON.stringify(objProducts))
+    }
+
+    send(): void {
+        let form = this.registerForm.value
+        this.setClients(new Cliente(form.documento, form.nombre, form.apellido, form.fechaNacimiento, form.direccion, form.telefono))
+        console.log(this.getClients())
     }
 }
