@@ -46,20 +46,20 @@ export class FormClientComponent implements OnInit {
     getVentas() {
     }
 
-    getProductos() {
-        let storage = window.localStorage.getItem("arrProductos")
-        if (storage) {
-            let arrStorage = storage.split(',')
-            let arrProducts = [];
-            for (let i in arrStorage) {
-                let produc = JSON.parse(arrStorage[i])
-                arrProducts.push(new Producto(produc.nombre, produc.descripcion, produc.precio, produc.imagen))
-            }
-            return arrProducts
+    // getProductos() {
+    //     let storage = window.localStorage.getItem("arrProductos")
+    //     if (storage) {
+    //         let arrStorage = storage.split(',')
+    //         let arrProducts = [];
+    //         for (let i in arrStorage) {
+    //             let produc = JSON.parse(arrStorage[i])
+    //             arrProducts.push(new Producto(produc.nombre, produc.descripcion, produc.precio, produc.imagen))
+    //         }
+    //         return arrProducts
 
-        }
-        return []
-    }
+    //     }
+    //     return []
+    // }
 
     setClients(cliente: Cliente) {
         let objClient = {
@@ -78,24 +78,24 @@ export class FormClientComponent implements OnInit {
 
     }
 
-    setProductos(producto: Producto) {
-        let storage = window.localStorage.getItem("arrProductos")
+    // setProductos(producto: Producto) {
+    //     let storage = window.localStorage.getItem("arrProductos")
 
-        let objProducts = {
-            nombre: producto.getNombre(),
-            descripcion: producto.getDescripcion(),
-            precio: producto.getPrecio(),
-            imagen: producto.getImagen()
-        }
+    //     let objProducts = {
+    //         nombre: producto.getNombre(),
+    //         descripcion: producto.getDescripcion(),
+    //         precio: producto.getPrecio(),
+    //         imagen: producto.getImagen()
+    //     }
 
-        if (storage) {
-            storage += "," + JSON.stringify(objProducts)
-            window.localStorage.setItem("arrProductos", storage)
+    //     if (storage) {
+    //         storage += "," + JSON.stringify(objProducts)
+    //         window.localStorage.setItem("arrProductos", storage)
 
-        }
-        else
-            window.localStorage.setItem("arrProductos", JSON.stringify(objProducts))
-    }
+    //     }
+    //     else
+    //         window.localStorage.setItem("arrProductos", JSON.stringify(objProducts))
+    // }
 
     send(): void {
         let form = this.registerForm.value

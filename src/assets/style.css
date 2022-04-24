@@ -1,0 +1,54 @@
+.btn {
+    border-radius: 6px;
+    border-radius: 6px;
+    border-right: none;
+    font: 120% sans-serif;
+}
+
+.btnSucess {
+    background-color: #4CAF50;
+}
+
+.btnSucess:hover {
+    background-color: #257e28;
+}
+
+.btnCancel {
+    background-color: #E57373;
+    transition: .5s;
+}
+
+.btnCancel:hover {
+    background-color: #f44336;
+}
+
+.h1 {
+    font: 150% sans-serif;
+    font-weight: 700;
+}
+
+.p {
+    font: 100% sans-serif;
+}
+
+.input {
+    border-radius: 6px;
+}
+
+
+*{
+    margin: 0;
+}
+
+.header{
+    background:#FFE177;
+	color: green;
+	height: 80px;
+
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
