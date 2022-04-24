@@ -1,0 +1,36 @@
+
+.btnHome {
+  border-radius: 6px;
+  border: none;
+
+  font: 180% sans-serif;
+  margin: 2em;
+}
+.btnHomeVenta {
+  background-color:#D9704A;
+  transition: .5s;
+}
+
+.btnHomeVenta:hover {
+  background-color: #d9704a9f;
+}
+.btnHomeProducto{
+  background-color: #D99748;
+  transition: .5s;
+}
+
+.btnHomeProducto:hover {
+  background-color: #d9984894;
+}
+.btnHomeCliente {
+  background-color: #F2BC57;
+  transition: .5s;
+}
+
+.btnHomeCliente:hover {
+  background-color: #f2bc5796;
+}
+
+.div{
+  display: flex;
+}
