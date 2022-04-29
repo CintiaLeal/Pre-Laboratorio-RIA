@@ -1,27 +1,3 @@
-.btn {
-    border-radius: 6px;
-    border-radius: 6px;
-    border-right: none;
-    font: 120% sans-serif;
-}
-
-.btnSucess {
-    background-color: #4CAF50;
-}
-
-.btnSucess:hover {
-    background-color: #257e28;
-}
-
-.btnCancel {
-    background-color: #E57373;
-    transition: .5s;
-}
-
-.btnCancel:hover {
-    background-color: #f44336;
-}
-
 .h1 {
     font: 150% sans-serif;
     font-weight: 700;
@@ -32,6 +8,8 @@
 }
 
 .input {
+    width: 100%;
+    height: 30px;
     border-radius: 6px;
 }
 
@@ -39,4 +17,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.form{
+    background-color: rgba(242, 188, 87, 0.8);
+}
+
+.inputDiv{
+    margin: 5px;
+    width: 70%;
 }

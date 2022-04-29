@@ -1,16 +1,20 @@
 <div class="body">
-  <form action="" (submit)="send()" [formGroup]="registerForm">
-      <p class="p">Nombre:</p>
-      <input class="input" type="text" name="nombre" formControlName="nombre">
-      <p class="p">Descripcion:</p>
-      <input class="input" type="text" name="descripcion" formControlName="descripcion">
-      <p class="p">Precio:</p>
-      <input class="input" type="text" name="precio" formControlName="precio">
-      <!-- <p class="p">Imagen:</p> -->
-      <!-- <input class="input" class="input" type="file" name="img" formControlName="img"> -->
-      <div style="margin-top: 10px;">
-        <button class="btn btnCancel">Cancelar</button>
-        <button class="btn btnSucess" type="submit">Registrar</button>
-    </div>
-  </form>
+    <form class="form" action="" (submit)="send()" [formGroup]="registerForm">
+        <div class="inputDiv">
+            <p class="p">Nombre:</p>
+            <input class="input" type="text" name="nombre" formControlName="nombre">
+        </div>
+        <div class="inputDiv">
+            <p class="p">Descripcion:</p>
+            <input class="input" type="text" name="descripcion" formControlName="descripcion">
+        </div>
+        <div class="inputDiv">
+            <p class="p">Precio:</p>
+            <input class="input" type="text" name="precio" formControlName="precio">
+        </div>
+        <div style="margin-top: 10px;">
+            <button class="btn btnCancel" routerLink="/">Cancelar</button>
+            <button class="btn btnSucess" type="submit">Registrar</button>
+        </div>
+    </form>
 </div>

@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
     styleUrls: ['./producto.component.css', '../../assets/style.css']
 })
 export class ProductoComponent implements OnInit {
-  public cantProducto: number;
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-      this.cantProducto = 0 ;
-     }
-      registerForm = this.formBuilder.group(
+    public cantProducto: number;
+    constructor(private formBuilder: FormBuilder, private router: Router) {
+        this.cantProducto = 0;
+    }
+    registerForm = this.formBuilder.group(
         {
-          nombre: ["", [Validators.required]],
-          describe: ["", [Validators.required]],
-          precio: ["", [Validators.required]],
-      //    img: ["", [Validators.required]]
+            nombre: ["", [Validators.required]],
+            descripcion: ["", [Validators.required]],
+            precio: ["", [Validators.required]],
+            //    img: ["", [Validators.required]]
         })
     ngOnInit(): void {
-      localStorage.clear()
+        localStorage.clear()
     }
 
 
@@ -49,7 +49,7 @@ export class ProductoComponent implements OnInit {
             documento: producto.getNombre(),
             nombre: producto.getDescripcion(),
             apellido: producto.getPrecio(),
-           // fechaNacimiento: producto.getImagen(),
+            // fechaNacimiento: producto.getImagen(),
 
         }
         window.localStorage.setItem(`client ${this.cantProducto}`, JSON.stringify(objPro))

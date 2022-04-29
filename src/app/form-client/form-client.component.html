@@ -2,27 +2,36 @@
 
     <div>
 
-        <form action="" (submit)="send()" [formGroup]="registerForm">
-            <p class="p">Documento:</p>
-            <input class="input" type="text" name="documento" placeholder="CI" formControlName="documento">
-            <p class="p">Nombre:</p>
-            <input class="input" type="text" name="nombre" placeholder="Nombre Cliente" formControlName="nombre">
-            <p class="p">Apellido:</p>
-            <input class="input" type="text" name="apellido" placeholder="Apellido Cliente" formControlName="apellido">
-            <p class="p">Fecha de Nacimiendo:</p>
-            <input class="input" type="date" name="fechaNacimiento" formControlName="fechaNacimiento">
-            <p class="p">Dirección:</p>
-            <input class="input" type="text" name="direccion" formControlName="direccion">
-            <p class="p">Telefono:</p>
-            <input class="input" type="text" name="telefono" formControlName="telefono">
+        <form class="form" action="" (submit)="send()" [formGroup]="registerForm">
+            <div class="inputDiv">
+                <p class="p">Documento:</p>
+                <input class="input" type="text" name="documento" placeholder="Documento" formControlName="documento">
+            </div>
+            <div class="inputDiv">
+                <p class="p">Nombre:</p>
+                <input class="input" type="text" name="nombre" placeholder="Nombre Cliente" formControlName="nombre">
+            </div>
+            <div class="inputDiv">
+                <p class="p">Apellido:</p>
+                <input class="input" type="text" name="apellido" placeholder="Apellido Cliente"
+                    formControlName="apellido">
+            </div>
+            <div class="inputDiv">
+                <p class="p">Fecha de Nacimiendo:</p>
+                <input class="input" type="date" name="fechaNacimiento" formControlName="fechaNacimiento">
+            </div>
+            <div class="inputDiv">
+                <p class="p">Dirección:</p>
+                <input class="input" type="text" name="direccion" placeholder="Dirección" formControlName="direccion">
+            </div>
+            <div class="inputDiv">
+                <p class="p">Telefono:</p>
+                <input class="input" type="text" name="telefono" placeholder="Telefono" formControlName="telefono">
+            </div>
             <div style="margin-top: 10px;">
-                <button class="btn btnCancel">Cancelar</button>
+                <button class="btn btnCancel" routerLink="/">Cancelar</button>
                 <button class="btn btnSucess" [disabled]="registerForm.invalid" type="submit">Registrar</button>
             </div>
         </form>
     </div>
-</div>
-
-<div style="text-align: center; padding-bottom: 5px; padding-top: 5px; border: 2px solid seagreen;">
-    Se creo el cliente correctamente
 </div>
