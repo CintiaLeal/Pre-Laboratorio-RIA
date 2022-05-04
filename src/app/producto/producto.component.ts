@@ -13,23 +13,28 @@ import { Router } from '@angular/router';
 })
 export class ProductoComponent implements OnInit {
     public cantProducto: number;
-    constructor(private formBuilder: FormBuilder, private router: Router) {
-        this.cantProducto = 0;
+    constructor(private formBuilder: FormBuilder, private router: Router) {   
+        let auxProducto = window.localStorage.getItem('cantProducto')  
+        if(auxProducto===null){
+          this.cantProducto = 0
+        }else{
+          this.cantProducto =  parseInt(auxProducto)  
+        }  
     }
+
+
+
+
     registerForm = this.formBuilder.group(
         {
             nombre: ["", [Validators.required]],
             descripcion: ["", [Validators.required]],
             precio: ["", [Validators.required]],
-            //    img: ["", [Validators.required]]
+            imagen: [""]
         })
     ngOnInit(): void {
-        localStorage.clear()
+      //  localStorage.clear()
     }
-
-
-
-
 
     getProductos() {
         let arr = []
@@ -37,7 +42,7 @@ export class ProductoComponent implements OnInit {
             let aux = window.localStorage.getItem(`produc ${i}`)
             if (typeof aux === "string") {
                 let produc = JSON.parse(aux)
-                arr.push(new Producto(produc.nombre, produc.descripcion, produc.precio, /*produc.imagen*/))
+                arr.push(new Producto(produc.nombre, produc.descripcion, produc.precio, produc.imagen))
             }
         }
         return arr
@@ -46,22 +51,20 @@ export class ProductoComponent implements OnInit {
 
     setProductos(producto: Producto) {
         let objPro = {
-            documento: producto.getNombre(),
-            nombre: producto.getDescripcion(),
-            apellido: producto.getPrecio(),
-            // fechaNacimiento: producto.getImagen(),
+            nombre: producto.getNombre(),
+            describe: producto.getDescripcion(),
+            precio: producto.getPrecio(),
+            imagen: producto.getImagen(),
 
         }
-        window.localStorage.setItem(`client ${this.cantProducto}`, JSON.stringify(objPro))
+        window.localStorage.setItem(`producto ${this.cantProducto}`, JSON.stringify(objPro))
         this.cantProducto += 1
+        window.localStorage.setItem('cantProducto',this.cantProducto.toString())
     }
 
-
-
-
     send(): void {
-        let form = this.registerForm.value
-        this.setProductos(new Producto(form.nombre, form.describe, form.precio, /*form.img*/))
-        console.log(this.getProductos())
+         let form = this.registerForm.value
+         this.setProductos(new Producto(form.nombre, form.describe, form.precio, form.imagen))
+         console.log(this.getProductos())
     }
 }

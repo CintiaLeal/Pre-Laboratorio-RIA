@@ -7,7 +7,7 @@ export class Cliente {
     direccion: string;
     telefono: string;
 
-
+    
     constructor(id: number, documento: string, nombre: string, apellido: string, fechaNacimiento: string, direccion: string, telefono: string) {
         this.id = id;
         this.documento = documento;

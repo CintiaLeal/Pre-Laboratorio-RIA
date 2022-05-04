@@ -25,4 +25,6 @@ import { ProductoComponent } from './producto/producto.component';
     providers: [],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+    
+}

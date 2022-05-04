@@ -15,8 +15,15 @@ import { Router } from '@angular/router';
 export class FormClientComponent implements OnInit {
     public cantCliente: number;
     constructor(private formBuilder: FormBuilder, private router: Router) {
-        this.cantCliente = 0
+        let auxCliente = window.localStorage.getItem('cantCliente')  
+        if(auxCliente===null){
+          this.cantCliente = 0
+        }else{
+          this.cantCliente =  parseInt(auxCliente)  
+        }
+      
     }
+
 
     registerForm = this.formBuilder.group({
         documento: ["", [Validators.required]],
@@ -28,7 +35,7 @@ export class FormClientComponent implements OnInit {
     })
 
     ngOnInit(): void {
-        localStorage.clear()
+      //  localStorage.clear()
     }
 
     getClients() {
@@ -54,8 +61,9 @@ export class FormClientComponent implements OnInit {
         }
         window.localStorage.setItem(`client ${this.cantCliente}`, JSON.stringify(objClient))
         this.cantCliente += 1
-    }
+        window.localStorage.setItem('cantCliente',this.cantCliente.toString())
 
+    }
     send(): void {
         let form = this.registerForm.value
         this.setClients(new Cliente(this.cantCliente, form.documento, form.nombre, form.apellido, form.fechaNacimiento, form.direccion, form.telefono))
