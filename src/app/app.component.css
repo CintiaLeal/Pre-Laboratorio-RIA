@@ -14,3 +14,37 @@
 .btnCancel:hover {
     background-color: #f44336;
 }
+h4{
+    font-family: 'Sen', sans-serif;
+    color: #D9704A;
+    cursor: pointer;
+    margin-right: 10px;
+
+}
+.divMenu{
+    display: flex; 
+    justify-content: center; 
+    align-items:center;
+}
+a{
+    font-family: 'Sen', sans-serif;
+    color: #fa7f72;
+}
+.conteinerF {
+    background:#FFE177;
+    display: flex;
+    flex-wrap: wrap;
+ 
+}
+
+.c1F {
+    width: 20%;
+    padding: 1%;
+    
+}
+
+.c2F {
+    width: 20%;
+    padding: 1%;
+  
+}

@@ -4,24 +4,23 @@
             <p class="p">Fecha:</p>
             <input class="input" type="date" name="fecha" formControlName="fecha">
         </div>
-        <a>Clientes</a>
-        <select formControlName="cliente">
-
-            <option *ngFor="let title of clientes" [value]="title">
-                {{title}}
-            </option>
-
-        </select>
-        <a>Productos</a>
-        <select formControlName="producto">
-            <option *ngFor="let producto of productos" [value]="producto">
-                {{producto}}
-            </option>
-
-
-        </select>
-
-        <div style="margin-top: 10px;">
+        <div class="inputDiv">
+            <p class="p">Clientes</p>
+            <select formControlName="cliente">
+                <option *ngFor="let title of clientes" [value]="title">
+                    {{title}}
+                </option>
+            </select>
+        </div>
+        <div class="inputDiv">
+            <p class="p">Productos</p>
+            <select formControlName="producto">
+                <option *ngFor="let producto of productos" [value]="producto">
+                    {{producto}}
+                </option>
+            </select>
+        </div>
+        <div class="divButtons">
             <button class="btn btnCancel" routerLink="/">Cancelar</button>
             <button class="btn btnSucess" type="submit">Comprar</button>
         </div>

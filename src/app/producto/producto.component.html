@@ -12,11 +12,15 @@
             <p class="p">Precio:</p>
             <input class="input" type="text" name="precio" formControlName="precio">
         </div>
-        <div class="inputDiv">
+        
+        <div class="inputDiv" style="text-align: center;">
             <p class="p">Imagen:</p>
-            <input class="input" type="file" name="imagen" formControlName="imagen">
+            <div>
+               <input class="input inputFile" type="file" name="imagen" formControlName="imagen"> 
+            </div>
         </div>
-        <div style="margin-top: 10px;">
+        
+        <div class="divButtons">
             <button class="btn btnCancel" routerLink="/">Cancelar</button>
             <button class="btn btnSucess" type="submit">Registrar</button>
         </div>

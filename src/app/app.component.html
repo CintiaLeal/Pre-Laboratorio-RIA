@@ -1,13 +1,28 @@
-<header class=header>
-    <img routerLink="./home" src="../assets/logo.png" height="80px" width="80px" />
 
-
+<link href='https://css.gg/phone.css' rel='stylesheet'>
+<link href='https://css.gg/mail.css' rel='stylesheet'>
+<header class="header" style="display: flex; justify-content: space-between;">
+    <div routerLink="/" style="cursor:pointer; margin-left: 10px;">
+      <img routerLink="./home" src="../assets/logo.png" height="80px" width="80px" />
+    </div>
+    <div class="divMenu" >
+      <h4 routerLink="./producto">Producto</h4>
+      <h4>|</h4>
+      <h4 routerLink="./cliente">Cliente</h4>
+      <h4>|</h4>
+      <h4 routerLink="./venta">Venta</h4>
+    </div>
 </header>
 
-<!-- <footer>
-  <h4>ubicacion</h4>
-  <h4>telefono</h4>
-  <h4>email</h4>
-</footer> -->
+  
 <router-outlet></router-outlet>
-
+<footer>
+  <div class="conteinerF">
+      <div class="c1F">
+        <h4><i class="gg-phone"></i> 4342 9716</h4>
+      </div>
+      <div class="c2F">
+          <h4> <i class="gg-mail"></i> comidaloca@gmail.com</h4>
+      </div>
+  </div>
+</footer> 

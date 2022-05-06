@@ -4,7 +4,13 @@
     border-right: none;
     font: 120% sans-serif;
 }
+.btnImagen {
+    background-color: #FFE177;
 
+}
+.btnImagen:hover{
+    background-color: #ecc949;
+}
 .btnSucess {
     background-color: #4CAF50;
 }
@@ -48,7 +54,12 @@
 }
 
 .body{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.divButtons{
+    width:50%;margin-top: 10px; display: flex; justify-content: space-around;
 }

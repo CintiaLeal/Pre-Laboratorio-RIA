@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import Swal from 'sweetalert2';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from '../class/cliente';
 import { Producto } from '../class/producto';
@@ -67,4 +67,11 @@ export class ProductoComponent implements OnInit {
          this.setProductos(new Producto(form.nombre, form.describe, form.precio, form.imagen))
          console.log(this.getProductos())
     }
+    alert(): void {
+        Swal.fire({
+          text: 'Compado',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        })
+      }
 }
