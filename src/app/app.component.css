@@ -31,7 +31,7 @@ a{
     color: #fa7f72;
 }
 .conteinerF {
-    background:#FFE177;
+   
     display: flex;
     flex-wrap: wrap;
  
@@ -48,3 +48,4 @@ a{
     padding: 1%;
   
 }
+
