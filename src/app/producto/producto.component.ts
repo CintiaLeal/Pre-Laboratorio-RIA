@@ -66,6 +66,7 @@ export class ProductoComponent implements OnInit {
          let form = this.registerForm.value
          this.setProductos(new Producto(form.nombre, form.describe, form.precio, form.imagen))
          console.log(this.getProductos())
+         this.alert()
     }
     alert(): void {
         Swal.fire({
